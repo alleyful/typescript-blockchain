@@ -4,7 +4,7 @@ Learning Typescript by making a Blockchain with it
 
 ---
 
-## start
+## Setting
 
 `tsconfig.json`
 
@@ -13,10 +13,11 @@ Learning Typescript by making a Blockchain with it
   "compilerOptions": {
     "module": "commonjs",
     "target": "ES2015",
-    "sourceMap": true
+    "sourceMap": true,
+    "outDir": "dist"
   },
   "include": [
-    "index.ts"
+    "src/**/*"
   ],
   "exclude": [
     "node_modules"
@@ -34,3 +35,19 @@ Learning Typescript by making a Blockchain with it
   }
 }
 ```
+
+- tsc-watch 추가
+```json
+{
+  "scripts": {
+    "start": "tsc-watch --onSuccess \"node dist/index.js\" "
+  },
+  "devDependencies": {
+    "tsc-watch": "^4.0.0"
+  }
+}
+```
+
+<br/>
+
+## 
