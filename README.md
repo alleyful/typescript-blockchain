@@ -2,6 +2,12 @@
 
 Learning Typescript by making a Blockchain with it
 
+## blockchain
+- 블록체인은 암호학과 수학덕분에 가능한, 영구적 정보의 보관 기술.
+- 새로운 플랫폼.
+- 의료기록, 수료장, 졸업장, 등을 영구 보관
+- 하이퍼레저 참고
+
 ---
 
 ## Setting
