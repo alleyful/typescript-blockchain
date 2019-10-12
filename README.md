@@ -160,5 +160,131 @@ console.log(blockchain);
 export {};
 ```
 
+---
 
+# Typescript
 
+## TypeScript 설치하기
+
+- npm
+```
+> npm install -g typescript
+```
+
+- yarn
+```
+> yarn global add typescript
+```
+
+<br/>
+
+## TypeScript 파일 만들기
+`index.ts`   
+```typescript
+const sayHi = (name) => {
+  console.log(`Hello ${name}`);
+};
+
+sayHi('Alley');
+```
+
+<br/>
+
+## Compiling
+- index.ts -> index.js
+```
+> tsc index.ts
+```
+
+<br/>
+
+## Type annotations
+- sayHi의 인수에 string 타입을 명시 후, array로 매개변수와 함 함수 호출시 컴파일 에러.
+```typescript
+const sayHi = (name: string) => {
+  console.log(`Hello ${name}`);
+};
+
+sayHi([1, 2, 3]);
+```
+```
+Argument of type 'number[]' is not assignable to parameter of type 'string'.
+```
+- 에러가 있었음에도 불구하고, index.js 파일은 생성되어 TypeScript를 사용할 수 있음.
+  그러나 이 경우에 TypeScript는 코드가 예상대로 실행되지 않을 것이라고 경고.
+  
+<br/>
+
+## Interfaces
+```typescript
+interface Human {
+  name: string;
+  age: number;
+  gender: string;
+}
+
+const person = {
+  name: "nicolas",
+  age: 22,
+  gender: "male"
+};
+
+const sayHi = (person: Human): string => {
+  return `Hello ${person.name}, you are ${person.age}, you are a ${
+    person.gender
+  }!`;
+};
+
+console.log(sayHi(person));
+```
+
+<br/>
+
+## Classes
+```typescript
+class Human {
+  public name: string;
+  private age: number;
+  public gender: string;
+  constructor(name: string, age: number, gender: string) {
+    this.name = name;
+    this.age = age;
+    this.gender = gender;
+  }
+}
+
+const lynn = new Human("Lynn", 18, "female");
+
+const sayHi = (person: Human): string => {
+  return `Hello ${person.name}, you are ${person.age}, you are a ${
+    person.gender
+  }!`;
+};
+
+console.log(sayHi(lynn));
+```
+
+<br/>
+
+## Interfaces + Classes
+```typescript
+class Student {
+    fullName: string;
+    constructor(public firstName: string, public middleInitial: string, public lastName: string) {
+        this.fullName = firstName + " " + middleInitial + " " + lastName;
+    }
+}
+
+interface Person {
+    firstName: string;
+    lastName: string;
+}
+
+function greeter(person : Person) {
+    return "Hello, " + person.firstName + " " + person.lastName;
+}
+
+let user = new Student("Jane", "M.", "User");
+
+console.log(greeter(user));
+```
